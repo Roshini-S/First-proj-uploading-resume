@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY HOMEPAGE</title>
+</head>
+<body bgcolor="gradient">
+
+<h1><center>UPLOAD YOUR RESUME</center></h1>
+<h2>click here to upload</h2>
+    {% block content %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+<input type="submit">
+</form>
+    {% endblock %}
+{% if alert_flag %}
+    <script>alert("ONLY DOCX FILE IS ALLOWED.")</script>
+{% endif %}
+{% if alert_flag1 %}
+    <script>alert("PLEASE CHECK FOR EMPTY FIELD TO PARSE THE DATA")</script>
+{% endif %}
+
+</body>
+</html>
